@@ -23,9 +23,18 @@ public class TransactionWebObject {
 		this.amount = amount;
 		this.description = description;
 		this.date = date;
-		this.fromPhoneFMT = Utilities.formatPhoneNumber(fromPhone);
-		this.toPhoneFMT = Utilities.formatPhoneNumber(toPhone);
+		if(fromPhone.equals("9999999999")) {
+			this.fromPhoneFMT = "Deleted Account";
+		} else {
+			this.fromPhoneFMT = Utilities.formatPhoneNumber(fromPhone);	
+		}
+		if(toPhone.equals("9999999999")) {
+			this.toPhoneFMT = "Deleted Account";
+		} else {
+			this.toPhoneFMT = Utilities.formatPhoneNumber(toPhone);
+		}
 	}
+	
 	public int getId() {
 		return id;
 	}

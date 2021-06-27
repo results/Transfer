@@ -50,6 +50,7 @@ public class SignInController {
 	
 	@RequestMapping("/signOut")
 	public String signOut(@ModelAttribute("user") User user, HttpSession session,ModelMap model) {
+		model.addAttribute("message", "");
 		user = (User) session.getAttribute("user");
 		//if(user != null) {
 			model.clear();
@@ -81,6 +82,7 @@ public class SignInController {
 		user.setLoggedIn(true);
 		addUserDetails(session,user, model);
 		model.addAttribute("loginMessage", "");
+		model.addAttribute("message", "");
 		session.setAttribute("signMes", "Welcome back, "+user.getUserInformation().getName());
 	    return "redirect:"+Constants.SIGNING_IN_PATH;
 	}

@@ -2,6 +2,7 @@ package com.perscholas.spring.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,11 +26,11 @@ public class Transaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@OneToOne
+	@OneToOne(cascade= {CascadeType.MERGE,CascadeType.REMOVE})
 	@NotNull
 	private User sentFrom;
 
-	@OneToOne
+	@OneToOne(cascade= {CascadeType.MERGE,CascadeType.REMOVE})
 	@NotNull
 	private User receivedBy;
 
