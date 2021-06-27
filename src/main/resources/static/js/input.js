@@ -13,7 +13,16 @@ function showMessage(title,message) {
         redirect(newurl);
     });
     document.getElementById("alert-overlay-footer").innerHTML = "<hr><a style='text-align: center; color: bg-primary; text-decoration: none;' class='show-pointer center'><span class='inline-icon-small material-icons show-pointer'>logout</span> Continue To Website</a>";
-    showMessage("Redirection","You have clicked a link that will redirect away from our website. We cannot guarantee the security or content of the website you are about to visit. If you do not wish to leave this website, click the exit in the top right corner. Clicl 'Continue To Website' to acknowledge this message and be redirected.");
+    showMessage("Redirection","You have clicked a link that will redirect away from our website. We cannot guarantee the security or content of the website you are about to visit. If you do not wish to leave this website, click the exit in the top right corner. Click 'Continue To Website' to acknowledge this message and be redirected.");
+  }
+
+  function deleteAccountWarn(newurl) {
+    console.log("aaaaaaaaaaaaaaa");
+    document.getElementById("alert-overlay-footer").addEventListener("click", function() {
+        redirectLocal(newurl);
+    });
+    document.getElementById("alert-overlay-footer").innerHTML = "<hr><a style='text-align: center; color: bg-primary; text-decoration: none;' class='show-pointer center'><span class='inline-icon-small material-icons show-pointer'>delete</span> I Understand, Delete My Account</a>";
+    showMessage("Warning","You have selected to delete your account. Please note that this is completely irreversible, once the account is deleted all data will be lost. This includes all transactions for both parties. If you wish to continue using this serivce afterwards, you will need to make a new account.");
   }
 
 

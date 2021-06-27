@@ -21,6 +21,21 @@
     <title>Welcome ${name}</title>
 </head>
 <body>
+    <div id="alert-overlay">
+        <div id="alert-overlay-box">
+            <span style="float: left;"class="material-icons inline-icon-lg">error</span>  <span onclick="closeMessage()" style="float: right; color: red;"class="material-icons inline-icon-lg show-pointer">close</span>
+            <h4 id="alert-overlay-header"style="text-align: center;"></h4>
+            <hr>
+            <p id="alert-overlay-text"></p>
+            <p id="alert-overlay-footer"></p>
+        </div>
+    </div>
+    <script>
+        var errorMessage = '${message}';
+        if(errorMessage != "") {
+            showMessage("Error",errorMessage);
+        }    
+    </script>
     <div class="container-fluid">
     <!-- Start Navigation-->
     <div id="nav_area" class="row">
@@ -81,8 +96,8 @@
                 </tr>
                 <c:forEach items="${transactionsList}" var="trans">
                     <tr>
-                        <td>${trans.fromPhoneFMT}</td>
                         <td>${trans.toPhoneFMT}</td>
+                        <td>${trans.fromPhoneFMT}</td>
                         <td>${trans.amount}</td>
                         <td>${trans.description}</td>
                         <td>${trans.date}</td>
@@ -93,9 +108,11 @@
                     </tr>
                 </c:forEach>
             </table>
+            <br>
+            <a class="btn btn-primary" id="transfer" onclick="deleteAccountWarn('${pageContext.request.contextPath}/account/delete')" role="button"><span class="inline-icon-small material-icons">delete</span> Delete Your Account</a>
         </div>
     </div>
-    <!-- Footer  -->
+
  <div id="footerlayer" class="footerlayer bg-primary row">
     <div class="col-12">
         <a href=""><span class="inline-icon-small material-icons">help</span> About</a>
@@ -103,21 +120,6 @@
         <a href=""><span class="inline-icon-small material-icons">contact_page</span> Contact</a>
     </div>
  </div>
-</div><!-- container -->
-<div id="alert-overlay">
-    <div id="alert-overlay-box">
-        <span style="float: left;"class="material-icons inline-icon-lg">error</span>  <span onclick="closeMessage()" style="float: right; color: red;"class="material-icons inline-icon-lg show-pointer">close</span>
-        <h4 id="alert-overlay-header"style="text-align: center;"></h4>
-        <hr>
-        <p id="alert-overlay-text"></p>
-        <p id="alert-overlay-footer"></p>
-    </div>
-</div>
-<script>
-    var errorMessage = '${message}';
-    if(errorMessage != "") {
-        showMessage("Error",errorMessage);
-    }    
-</script>
+
 </body>
 </html>

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -30,20 +31,20 @@ public class User {
     
     private double currentBalance = 0.00;
 	
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade= {CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.REFRESH})
     @NotNull
     @Valid
 	private UserLogin login;
 	
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade= {CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.REFRESH})
     @NotNull
     @Valid
 	private UserInformation userInformation;
 	
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<Transaction> sentTransactions;
     
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<Transaction> receivedTransactions;
     
     @Transient
@@ -89,7 +90,7 @@ public class User {
 		this.receivedTransactions = receivedTransactions;
 	}
 
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<User> friends;
     
     @Transient

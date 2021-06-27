@@ -36,7 +36,8 @@ public class SearchController {
 		loginService.search(keyword).stream().forEach(e -> {
 			User users = userService.findByLogin(e);
 			users.getUserInformation().setPhoneNumberLocal(e.getPhoneNumber());
-			list.add(users.getUserInformation());
+			if(users.getUserInformation().isHidden())
+				list.add(users.getUserInformation());
 		});
 		model.put("results", list);
 		return "searchusers";
