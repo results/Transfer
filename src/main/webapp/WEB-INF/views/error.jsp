@@ -35,7 +35,7 @@
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">  <!-- Admin panel, not real work, but for ease of use since no hosting-->
             </div>
             <div class="mx-auto order-0">
-                <a class="text-white navbar-brand mx-auto" href="${pageContext.request.contextPath}/"><span class="inline-icon material-icons">send</span> Transfer</a>
+                <a class="text-white navbar-brand mx-auto" href="${pageContext.request.contextPath}/account/userhome"><span class="inline-icon material-icons">send</span> Transfer</a>
             </div>
             <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
                 <ul class="navbar-nav ms-auto">
