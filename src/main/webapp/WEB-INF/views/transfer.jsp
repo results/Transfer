@@ -28,7 +28,7 @@
                 <a class="text-white nav-link" href="503.html?target=listapartment&ref=home"><span class="inline-icon material-icons">admin_panel_settings</span> Admin Panel</a>
             </div>
             <div class="mx-auto order-0">
-                <a class="text-white navbar-brand mx-auto" href="${pageContext.request.contextPath}/"><span class="inline-icon material-icons">send</span> Transfer</a>
+                <a class="text-white navbar-brand mx-auto" href="${pageContext.request.contextPath}/account/userhome"><span class="inline-icon material-icons">send</span> Transfer</a>
             </div>
             <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
                 <ul class="navbar-nav ms-auto">
